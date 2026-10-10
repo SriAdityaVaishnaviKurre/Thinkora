@@ -1,0 +1,6 @@
+{
+  "name": "Thinkora — Student Career & Startup Platform",
+  "description": "Real Opportunities. Real People. Real Growth. Discover verified jobs and internships and collaborate on student startup ideas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,621 @@
+import { 
+  JobOpportunity, 
+  StartupIdea, 
+  CollaboratorProfile, 
+  CollaborationRequest,
+  AppNotification 
+} from '../types';
+
+export const SEED_JOBS: JobOpportunity[] = [
+  {
+    id: 'job-1',
+    title: 'Frontend Developer Intern',
+    companyName: 'NovaTech Cloud (Demo)',
+    companyInitials: 'NT',
+    companyWebsite: 'https://novatech-demo.io',
+    companyEmailDomain: 'novatech-demo.io',
+    location: 'San Francisco, CA',
+    workMode: 'Remote',
+    type: 'Internship',
+    experienceLevel: 'Student / Intern',
+    duration: '12 Weeks (Summer 2026)',
+    compensation: '$42 - $48 / hr',
+    postedDate: '2026-04-01',
+    applicationDeadline: '2026-05-15',
+    shortDescription: 'Build next-generation responsive dashboards with React, TypeScript, and modern component systems.',
+    fullDescription: 'NovaTech Cloud is seeking an energetic Frontend Developer Intern to join our Developer Tools team for Summer 2026. You will partner with experienced engineers and designers to build scalable UI interfaces, conduct code reviews, and deploy production features used by thousands of engineering teams.',
+    responsibilities: [
+      'Implement reusable UI components and design systems using React and TypeScript.',
+      'Optimize web performance, bundle size, and accessibility standards (WCAG AA).',
+      'Participate in agile sprints, daily standups, and developer workshops.',
+      'Write clean unit and integration tests for critical frontend workflows.'
+    ],
+    eligibility: [
+      'Currently enrolled in a Bachelor\'s or Master\'s degree program in Computer Science or related technical discipline.',
+      'Familiarity with modern JavaScript/TypeScript, React, HTML5/CSS3, and Git.',
+      'Strong collaborative problem-solving mindset and passion for great user experience.'
+    ],
+    requiredSkills: ['React', 'TypeScript', 'Tailwind CSS', 'Git', 'REST APIs'],
+    verificationStatus: 'Verified',
+    verificationEvidence: {
+      officialEmailVerified: true,
+      companyRegistrationConfirmed: true,
+      domainMatchesApplicationUrl: true,
+      noUpfrontFeeRequired: true,
+      clearJobScope: true,
+      notes: 'Employer identity validated via corporate registry and verified business domain (@novatech-demo.io). Zero applicant fees requested.'
+    },
+    credibilityChecks: [
+      { id: 'c1', name: 'Corporate Email Authenticity', passed: true, severity: 'high', detail: 'Recruiter verified via domain mailbox @novatech-demo.io' },
+      { id: 'c2', name: 'Registered Business Identity', passed: true, severity: 'high', detail: 'Valid registered entity with verified corporate filings' },
+      { id: 'c3', name: 'Application URL Consistency', passed: true, severity: 'medium', detail: 'Application links directly to employer ATS careers portal' },
+      { id: 'c4', name: 'Zero Upfront Fees Policy', passed: true, severity: 'high', detail: 'No application fees, equipment charges, or deposits required' },
+      { id: 'c5', name: 'Realistic Compensation Range', passed: true, severity: 'low', detail: 'Compensation is consistent with accredited intern benchmarks' }
+    ],
+    applicationUrl: 'https://novatech-demo.io/careers/frontend-intern',
+    applicationInstructions: 'Apply through the official portal with your resume and GitHub/portfolio link.',
+    isDemoListing: true
+  },
+  {
+    id: 'job-2',
+    title: 'Data Analyst Intern',
+    companyName: 'FinMetrics Analytics (Demo)',
+    companyInitials: 'FM',
+    companyWebsite: 'https://finmetrics-demo.org',
+    companyEmailDomain: 'finmetrics-demo.org',
+    location: 'New York, NY',
+    workMode: 'Hybrid',
+    type: 'Internship',
+    experienceLevel: 'Student / Intern',
+    duration: '10 Weeks (Summer 2026)',
+    compensation: '$38 - $44 / hr',
+    postedDate: '2026-04-03',
+    applicationDeadline: '2026-05-25',
+    shortDescription: 'Analyze user behavior data, build interactive KPI dashboards, and create financial models for student fintech tools.',
+    fullDescription: 'FinMetrics is seeking a Data Analyst Intern to extract valuable insights from product usage patterns. You will work with SQL, Python, and data visualization tools to produce reports that inform product decisions for student investment accounts.',
+    responsibilities: [
+      'Query relational databases using SQL to track growth, churn, and feature adoption.',
+      'Build clean data dashboards and charts using Tableau/Metabase and Python.',
+      'Present findings and data-driven recommendations in weekly product meetings.',
+      'Perform exploratory data analysis and assist in cohort retention studies.'
+    ],
+    eligibility: [
+      'Enrolled undergraduate or graduate student in Data Science, Statistics, Mathematics, or Economics.',
+      'Proficiency in SQL and Python (pandas, numpy, matplotlib/seaborn).',
+      'Strong analytical reasoning and clear communication skills.'
+    ],
+    requiredSkills: ['SQL', 'Python', 'Tableau', 'Statistics', 'Data Visualization'],
+    verificationStatus: 'Verified',
+    verificationEvidence: {
+      officialEmailVerified: true,
+      companyRegistrationConfirmed: true,
+      domainMatchesApplicationUrl: true,
+      noUpfrontFeeRequired: true,
+      clearJobScope: true,
+      notes: 'Employer identity validated. Company participates in university career recruiting pipelines.'
+    },
+    credibilityChecks: [
+      { id: 'c1', name: 'Corporate Email Authenticity', passed: true, severity: 'high', detail: 'Recruiter verified via domain mailbox @finmetrics-demo.org' },
+      { id: 'c2', name: 'Registered Business Identity', passed: true, severity: 'high', detail: 'Registered fintech analytics corporate entity' },
+      { id: 'c3', name: 'Application URL Consistency', passed: true, severity: 'medium', detail: 'Application routes to verified careers.finmetrics-demo.org' },
+      { id: 'c4', name: 'Zero Upfront Fees Policy', passed: true, severity: 'high', detail: 'No onboarding fees or equipment charges' },
+      { id: 'c5', name: 'Realistic Compensation Range', passed: true, severity: 'low', detail: 'Market-aligned hourly compensation for financial data interns' }
+    ],
+    applicationUrl: 'https://finmetrics-demo.org/careers/data-analyst-intern',
+    applicationInstructions: 'Submit resume and link to any data analysis project or Kaggle/GitHub notebook.',
+    isDemoListing: true
+  },
+  {
+    id: 'job-3',
+    title: 'UI/UX Design Intern',
+    companyName: 'Horizon Health Systems (Demo)',
+    companyInitials: 'HH',
+    companyWebsite: 'https://horizonhealth-demo.com',
+    companyEmailDomain: 'horizonhealth-demo.com',
+    location: 'Austin, TX',
+    workMode: 'Remote',
+    type: 'Internship',
+    experienceLevel: 'Student / Intern',
+    duration: '12 Weeks (Summer 2026)',
+    compensation: '$36 - $42 / hr',
+    postedDate: '2026-04-05',
+    applicationDeadline: '2026-05-30',
+    shortDescription: 'Design patient wellness journeys, wireframes, and accessible UI mobile components in Figma for student health apps.',
+    fullDescription: 'Horizon Health is looking for a creative UI/UX Design Intern to craft accessible, intuitive mobile user experiences. You will conduct user research interviews with students, develop wireframes, and test interactive prototypes in Figma.',
+    responsibilities: [
+      'Design wireframes, user journeys, and high-fidelity prototypes in Figma.',
+      'Conduct generative user testing sessions with college student cohorts.',
+      'Maintain and expand our mobile design system component library.',
+      'Partner closely with frontend engineers to ensure high design implementation fidelity.'
+    ],
+    eligibility: [
+      'Current student in Product Design, Human-Computer Interaction (HCI), or Graphic Design.',
+      'Portfolio showcasing at least 2 case studies illustrating product thinking and UI craft.',
+      'Fluency with Figma components, auto-layout, and prototyping.'
+    ],
+    requiredSkills: ['Figma', 'UI/UX Design', 'User Research', 'Wireframing', 'Prototyping'],
+    verificationStatus: 'Verified',
+    verificationEvidence: {
+      officialEmailVerified: true,
+      companyRegistrationConfirmed: true,
+      domainMatchesApplicationUrl: true,
+      noUpfrontFeeRequired: true,
+      clearJobScope: true,
+      notes: 'Corporate registration and healthcare compliance certification confirmed.'
+    },
+    credibilityChecks: [
+      { id: 'c1', name: 'Corporate Email Authenticity', passed: true, severity: 'high', detail: 'Official recruiter email verified on company domain' },
+      { id: 'c2', name: 'Registered Business Identity', passed: true, severity: 'high', detail: 'Entity verified via corporate public records' },
+      { id: 'c3', name: 'Application URL Consistency', passed: true, severity: 'medium', detail: 'URL routes directly to verified company ATS' },
+      { id: 'c4', name: 'Zero Upfront Fees Policy', passed: true, severity: 'high', detail: 'No upfront fees or equipment charges' },
+      { id: 'c5', name: 'Realistic Compensation Range', passed: true, severity: 'low', detail: 'Standard hourly intern pay' }
+    ],
+    applicationUrl: 'https://horizonhealth-demo.com/careers/uiux-intern',
+    applicationInstructions: 'Submit your portfolio URL and resume through the applicant tracking portal.',
+    isDemoListing: true
+  },
+  {
+    id: 'job-4',
+    title: 'Business Analyst Intern',
+    companyName: 'Apex Global Ventures (Demo)',
+    companyInitials: 'AG',
+    companyWebsite: 'https://apexventures-demo.com',
+    companyEmailDomain: 'apexventures-demo.com',
+    location: 'Chicago, IL',
+    workMode: 'On-site',
+    type: 'Full-time',
+    experienceLevel: 'Entry-Level (0-2 yrs)',
+    duration: 'Full-time Graduate Track',
+    compensation: '$75,000 - $85,000 / yr',
+    postedDate: '2026-04-06',
+    applicationDeadline: '2026-06-01',
+    shortDescription: 'Evaluate market expansion strategies, map operational workflows, and prepare executive presentations for seed-stage startups.',
+    fullDescription: 'Apex Global Ventures seeks a motivated Business Analyst to conduct market research, perform competitor benchmarking, and synthesize financial metrics for early-stage portfolio companies.',
+    responsibilities: [
+      'Conduct market sizing, competitor landscaping, and customer research.',
+      'Build financial models and forecast operational metrics in Excel/Google Sheets.',
+      'Synthesize key findings into concise slide decks for executive reviews.',
+      'Coordinate with portfolio company founders on operational milestones.'
+    ],
+    eligibility: [
+      'Graduating senior or recent graduate in Business Administration, Finance, or Economics.',
+      'Strong quantitative reasoning and spreadsheet modeling abilities.',
+      'Exceptional presentation and written communication skills.'
+    ],
+    requiredSkills: ['Financial Modeling', 'Market Research', 'Data Analysis', 'Excel', 'Presentation'],
+    verificationStatus: 'Verified',
+    verificationEvidence: {
+      officialEmailVerified: true,
+      companyRegistrationConfirmed: true,
+      domainMatchesApplicationUrl: true,
+      noUpfrontFeeRequired: true,
+      clearJobScope: true,
+      notes: 'Verified corporate investment firm with registered commercial address.'
+    },
+    credibilityChecks: [
+      { id: 'c1', name: 'Corporate Email Authenticity', passed: true, severity: 'high', detail: 'Recruiter verified via domain mailbox @apexventures-demo.com' },
+      { id: 'c2', name: 'Registered Business Identity', passed: true, severity: 'high', detail: 'State business registry confirmed active' },
+      { id: 'c3', name: 'Application URL Consistency', passed: true, severity: 'medium', detail: 'Direct application link to company career site' },
+      { id: 'c4', name: 'Zero Upfront Fees Policy', passed: true, severity: 'high', detail: 'No fees required' },
+      { id: 'c5', name: 'Realistic Compensation Range', passed: true, severity: 'low', detail: 'Compensation is consistent with market benchmarks' }
+    ],
+    applicationUrl: 'https://apexventures-demo.com/careers/business-analyst',
+    applicationInstructions: 'Apply with your resume and a brief cover letter outlining your interest in startup ventures.',
+    isDemoListing: true
+  },
+  {
+    id: 'job-5',
+    title: 'Campus Brand & Community Ambassador',
+    companyName: 'CampusPulse Media (Demo)',
+    companyInitials: 'CP',
+    companyWebsite: 'https://campuspulse-mock.net',
+    companyEmailDomain: 'campuspulse-mock.net',
+    location: 'Boston, MA',
+    workMode: 'Hybrid',
+    type: 'Part-time',
+    experienceLevel: 'Student / Intern',
+    duration: '1 Semester (Fall 2026)',
+    compensation: '$22 / hr (15 hrs/wk)',
+    postedDate: '2026-04-07',
+    applicationDeadline: '2026-06-15',
+    shortDescription: 'Organize campus student workshops and produce social content for an independent student publication network.',
+    fullDescription: 'CampusPulse Media is an independent student news network seeking part-time campus leads to coordinate local university events and generate social media awareness.',
+    responsibilities: [
+      'Coordinate monthly on-campus student roundtables and newsletter distribution.',
+      'Create engaging Instagram and TikTok stories celebrating student accomplishments.',
+      'Gather student feedback on editorial articles and survey topics.'
+    ],
+    eligibility: [
+      'Currently enrolled university student with strong campus involvement.',
+      'Active communicator with energetic interpersonal skills.'
+    ],
+    requiredSkills: ['Social Media', 'Event Planning', 'Communication', 'Content Creation'],
+    verificationStatus: 'Pending Review',
+    verificationEvidence: {
+      officialEmailVerified: true,
+      companyRegistrationConfirmed: false,
+      domainMatchesApplicationUrl: true,
+      noUpfrontFeeRequired: true,
+      clearJobScope: true,
+      notes: 'Recruiter email domain verified. Corporate documentation undergoing state entity confirmation.'
+    },
+    credibilityChecks: [
+      { id: 'c1', name: 'Corporate Email Authenticity', passed: true, severity: 'high', detail: 'Recruiter verified via domain mailbox' },
+      { id: 'c2', name: 'Registered Business Identity', passed: false, severity: 'high', detail: 'Corporate registry review is currently in progress' },
+      { id: 'c3', name: 'Application URL Consistency', passed: true, severity: 'medium', detail: 'Links to company application form' },
+      { id: 'c4', name: 'Zero Upfront Fees Policy', passed: true, severity: 'high', detail: 'No application or equipment charges' },
+      { id: 'c5', name: 'Realistic Compensation Range', passed: true, severity: 'low', detail: 'Standard hourly pay for campus ambassador roles' }
+    ],
+    applicationUrl: 'https://campuspulse-mock.net/apply/campus-ambassador',
+    applicationInstructions: 'Fill out the short online form with links to your campus student profile.',
+    isDemoListing: true
+  },
+  {
+    id: 'job-6',
+    title: 'Data Entry & Virtual Task Associate (Scam Awareness Example)',
+    companyName: 'Apex Global Logistics Corp (Flagged Demo)',
+    companyInitials: 'AG',
+    companyWebsite: 'http://apex-quickjobs-unverified.biz',
+    companyEmailDomain: 'gmail.com',
+    location: 'Remote (Worldwide)',
+    workMode: 'Remote',
+    type: 'Part-time',
+    experienceLevel: 'Student / Intern',
+    duration: 'Immediate',
+    compensation: '$78.00 / hr (Unrealistically high for basic data entry)',
+    postedDate: '2026-04-08',
+    applicationDeadline: 'Immediate hiring',
+    shortDescription: '⚠️ FLAGGED AS POTENTIAL RISK: Suspicious listing requesting upfront security badge fees via free @gmail recruiter.',
+    fullDescription: 'ATTENTION: This sample posting demonstrates how Thinkora detects common student job scams. The posting promises $78/hour for simple data entry with no interview, uses a free @gmail.com address, and directs students to pay a $49 "badge verification processing fee" before receiving work.',
+    responsibilities: [
+      'Copy and paste numbers from spreadsheets (Unrealistically high $78/hr promised)',
+      'Communicate via unverified instant messaging application',
+      'Pay $49 upfront fee for security badge clearance (RED FLAG)'
+    ],
+    eligibility: [
+      'No experience needed, instant hiring promised without interview (Classic scam pattern)'
+    ],
+    requiredSkills: ['Typing', 'Spreadsheets'],
+    verificationStatus: 'Potential Risk',
+    verificationEvidence: {
+      officialEmailVerified: false,
+      companyRegistrationConfirmed: false,
+      domainMatchesApplicationUrl: false,
+      noUpfrontFeeRequired: false,
+      clearJobScope: false,
+      notes: 'CRITICAL TRUST WARNING: Recruiter uses free webmail (@gmail.com). Listing requests a $49 upfront security fee. Compensation is 4x above market for entry tasks without interview.',
+      warningReasons: [
+        'Requests $49 upfront "security onboarding / badge verification fee" — Legitimate employers NEVER charge applicants money.',
+        'Recruiter uses a free webmail address (recruiter.apexops@gmail.com) instead of a corporate domain.',
+        'Unrealistic pay rate ($78/hr) for zero-experience basic copy-paste tasks.',
+        'Application link leads to an unencrypted external third-party form requesting banking details.',
+        'No verified business registration or physical corporate presence found.'
+      ]
+    },
+    credibilityChecks: [
+      { id: 'c1', name: 'Corporate Email Authenticity', passed: false, severity: 'high', detail: 'Recruiter using free gmail.com mailbox instead of company domain' },
+      { id: 'c2', name: 'Registered Business Identity', passed: false, severity: 'high', detail: 'Entity fails corporate registration checks' },
+      { id: 'c3', name: 'Application URL Consistency', passed: false, severity: 'high', detail: 'Destination URL is inconsistent with claimed company domain' },
+      { id: 'c4', name: 'Zero Upfront Fees Policy', passed: false, severity: 'high', detail: 'FAIL: Demands $49 upfront administrative deposit' },
+      { id: 'c5', name: 'Realistic Compensation Range', passed: false, severity: 'medium', detail: 'FAIL: $78/hr for unskilled task is an indicator of fraudulent solicitation' }
+    ],
+    applicationUrl: 'https://thinkora-demo.local/scam-warning-notice',
+    applicationInstructions: 'DO NOT APPLY OR SUBMIT PAYMENT. This posting is preserved for educational safety training.',
+    isDemoListing: true
+  }
+];
+
+export const SEED_IDEAS: StartupIdea[] = [
+  {
+    id: 'idea-1',
+    title: 'EcoTrack — Sustainable lifestyle tracking app',
+    tagline: 'Gamified carbon footprint tracker that rewards college students with campus dining discounts.',
+    problem: 'College students want to live more sustainably but lack simple, engaging ways to track daily habits and see immediate positive reinforcement on campus.',
+    solution: 'A mobile companion app that connects with campus transit, bike sharing, and reusable container programs, awarding eco-points redeemable at university dining halls.',
+    targetAudience: 'University undergraduates, campus sustainability offices, and collegiate dining services.',
+    category: 'CleanTech & Climate',
+    stage: 'Building MVP',
+    creatorId: 'user-arjun',
+    creatorName: 'Arjun Nair',
+    creatorInitials: 'AN',
+    creatorUniversity: 'UC Berkeley',
+    requiredSkills: ['React Native', 'Node.js', 'UI/UX Design', 'Campus Outreach'],
+    desiredRoles: ['Frontend Developer', 'UI/UX Designer', 'Growth & Marketing Lead'],
+    collaborationPreferences: 'Looking for a React Native developer and a campus growth lead. 6-10 hrs/week commitment.',
+    interestedCount: 18,
+    collaboratorIds: ['user-arjun', 'user-priya'],
+    createdAt: '2026-03-20',
+    updatedAt: '2026-04-05'
+  },
+  {
+    id: 'idea-2',
+    title: 'HealthTech — Student-focused health platform',
+    tagline: 'On-demand peer mental health support and confidential wellness check-ins for university students.',
+    problem: 'University counseling centers face month-long waitlists, leaving students in acute distress without accessible, stigma-free peer support.',
+    solution: 'A private web and mobile platform pairing students with trained peer active listeners and licensed mental wellness resources, with 24/7 crisis escalation.',
+    targetAudience: 'College students, student health counseling departments, and campus peer health organizations.',
+    category: 'HealthTech',
+    stage: 'Prototype',
+    creatorId: 'user-sneha',
+    creatorName: 'Sneha Iyer',
+    creatorInitials: 'SI',
+    creatorUniversity: 'Georgia Tech',
+    requiredSkills: ['Full-Stack Web (React/Node)', 'HIPAA/Security Best Practices', 'Product Design'],
+    desiredRoles: ['Full-Stack Developer', 'Product Designer', 'Mental Health Outreach'],
+    collaborationPreferences: 'Seeking a backend developer with authentication experience and a student health researcher.',
+    interestedCount: 24,
+    collaboratorIds: ['user-sneha', 'user-rahul'],
+    createdAt: '2026-03-24',
+    updatedAt: '2026-04-07'
+  },
+  {
+    id: 'idea-3',
+    title: 'EduLens — AI-powered personalized learning',
+    tagline: 'Interactive study companion that transforms complex STEM lecture recordings into adaptive flashcards and quiz pods.',
+    problem: 'STEM college students spend hours scrubbing through 2-hour lecture recordings trying to locate specific derivation explanations before exams.',
+    solution: 'An AI-powered academic knowledge base that transcribes lectures, extracts key mathematical formulas, and automatically generates interactive quiz drills and peer study pods.',
+    targetAudience: 'Undergraduate engineering, mathematics, and pre-med students.',
+    category: 'EdTech',
+    stage: 'Building MVP',
+    creatorId: 'user-priya',
+    creatorName: 'Priya Sharma',
+    creatorAvatarUrl: '/src/assets/images/avatar_student_founder_1791620062670.jpg',
+    creatorInitials: 'PS',
+    creatorUniversity: 'UT Austin',
+    requiredSkills: ['Python / FastAPI', 'React', 'TypeScript', 'Speech-to-Text APIs'],
+    desiredRoles: ['Frontend Developer', 'Machine Learning Engineer', 'UI/UX Designer'],
+    collaborationPreferences: 'Looking for a frontend developer to build the interactive podcast/transcript viewer. 8 hrs/week.',
+    interestedCount: 31,
+    collaboratorIds: ['user-priya', 'current-user-1'],
+    createdAt: '2026-03-28',
+    updatedAt: '2026-04-08'
+  },
+  {
+    id: 'idea-4',
+    title: 'NextGen Finance — Financial skills for students',
+    tagline: 'Zero-jargon financial simulator teaching college students taxes, credit building, and smart investing.',
+    problem: '84% of college graduates state they feel completely unprepared to file taxes, manage 401(k)s, or build credit scores upon graduation.',
+    solution: 'A gamified financial simulation platform where students manage simulated student loans, paychecks, and investment portfolios using real-time market data in risk-free sandboxes.',
+    targetAudience: 'College freshmen, seniors transitioning to full-time work, and high school seniors.',
+    category: 'Fintech',
+    stage: 'Idea Concept',
+    creatorId: 'user-rahul',
+    creatorName: 'Rahul Mehta',
+    creatorAvatarUrl: '/src/assets/images/avatar_student_engineer_1791620076984.jpg',
+    creatorInitials: 'RM',
+    creatorUniversity: 'NYU Stern',
+    requiredSkills: ['React', 'Financial Modeling', 'Interactive Gamification', 'Graphic Design'],
+    desiredRoles: ['Frontend Engineer', 'Curriculum Writer', 'Brand Marketer'],
+    collaborationPreferences: 'Seeking a frontend developer who loves interactive animations and charts.',
+    interestedCount: 15,
+    collaboratorIds: ['user-rahul'],
+    createdAt: '2026-04-02',
+    updatedAt: '2026-04-09'
+  }
+];
+
+export const SEED_COLLABORATORS: CollaboratorProfile[] = [
+  {
+    id: 'user-priya',
+    name: 'Priya Sharma',
+    email: 'priya.sharma@utexas.edu',
+    roleType: 'Student',
+    avatarUrl: '/src/assets/images/avatar_student_founder_1791620062670.jpg',
+    initials: 'PS',
+    university: 'UT Austin',
+    degree: 'B.S.',
+    major: 'Computer Science & HCI',
+    graduationYear: '2027',
+    bio: 'Developer and UI/UX designer passionate about educational technology, accessible interfaces, and interactive learning tools. Built hackathon-winning study platforms.',
+    skills: ['React', 'TypeScript', 'Figma', 'UI/UX Design', 'Python', 'Tailwind CSS'],
+    interests: ['EdTech', 'Product Design', 'Web Development', 'Student Startups'],
+    startupInterests: ['EdTech', 'AI & Machine Learning', 'Social Impact'],
+    availability: '10-20 hrs/week',
+    githubUrl: 'https://github.com/priyasharma-demo',
+    linkedinUrl: 'https://linkedin.com/in/priyasharma-demo',
+    privacy: {
+      showEmailToConnectionsOnly: true,
+      publicProfile: true
+    }
+  },
+  {
+    id: 'user-rahul',
+    name: 'Rahul Mehta',
+    email: 'rahul.mehta@nyu.edu',
+    roleType: 'Student',
+    avatarUrl: '/src/assets/images/avatar_student_engineer_1791620076984.jpg',
+    initials: 'RM',
+    university: 'NYU Stern',
+    degree: 'B.S.',
+    major: 'Marketing & Digital Media',
+    graduationYear: '2026',
+    bio: 'Product designer and growth marketer focused on consumer fintech, brand identity, and user acquisition strategies for early-stage ventures.',
+    skills: ['Figma', 'Product Marketing', 'Brand Design', 'Content Strategy', 'Copywriting'],
+    interests: ['Fintech', 'Consumer Products', 'Visual Design', 'Growth Hacking'],
+    startupInterests: ['Fintech', 'Campus Life', 'Social Impact'],
+    availability: '5-10 hrs/week',
+    linkedinUrl: 'https://linkedin.com/in/rahulmehta-demo',
+    privacy: {
+      showEmailToConnectionsOnly: true,
+      publicProfile: true
+    }
+  },
+  {
+    id: 'user-sneha',
+    name: 'Sneha Iyer',
+    email: 'sneha.iyer@gatech.edu',
+    roleType: 'Student',
+    initials: 'SI',
+    university: 'Georgia Tech',
+    degree: 'B.S.',
+    major: 'Computer Science (Systems & Software)',
+    graduationYear: '2026',
+    bio: 'Full-stack software developer and product builder interested in healthcare systems, distributed databases, and high-reliability web applications.',
+    skills: ['Node.js', 'PostgreSQL', 'React', 'Docker', 'REST APIs', 'System Design'],
+    interests: ['HealthTech', 'Open Source Tools', 'Backend Infrastructure', 'Product Management'],
+    startupInterests: ['HealthTech', 'Dev Tools & Open Source', 'AI & Machine Learning'],
+    availability: '10-20 hrs/week',
+    githubUrl: 'https://github.com/snehaiyer-demo',
+    privacy: {
+      showEmailToConnectionsOnly: true,
+      publicProfile: true
+    }
+  },
+  {
+    id: 'user-arjun',
+    name: 'Arjun Nair',
+    email: 'arjun.nair@berkeley.edu',
+    roleType: 'Student',
+    initials: 'AN',
+    university: 'UC Berkeley',
+    degree: 'B.A.',
+    major: 'Economics & Environmental Policy',
+    graduationYear: '2027',
+    bio: 'Student entrepreneur focused on business strategy, climate technology, and circular economy modeling. Led campus zero-waste initiatives.',
+    skills: ['Business Strategy', 'Financial Modeling', 'Pitch Decks', 'Operations', 'Market Analysis'],
+    interests: ['CleanTech', 'Circular Economy', 'Sustainable Supply Chains', 'Venture Capital'],
+    startupInterests: ['CleanTech & Climate', 'Social Impact', 'Campus Life'],
+    availability: '5-10 hrs/week',
+    linkedinUrl: 'https://linkedin.com/in/arjunnair-demo',
+    privacy: {
+      showEmailToConnectionsOnly: true,
+      publicProfile: true
+    }
+  },
+  {
+    id: 'user-mentor-elena',
+    name: 'Dr. Elena Rostova',
+    email: 'elena.rostova@stanford.edu',
+    roleType: 'Mentor',
+    initials: 'ER',
+    university: 'Stanford University (Faculty & Venture Advisor)',
+    degree: 'Ph.D.',
+    major: 'Computer Science & Technology Entrepreneurship',
+    graduationYear: 'Faculty',
+    bio: 'Former 2x tech founder and university incubator mentor. Advising student founders on customer discovery, technical architecture, and early-stage angel fundraising.',
+    skills: ['Startup Mentorship', 'Fundraising', 'Technical Architecture', 'Product Strategy', 'IP & Patents'],
+    interests: ['Student Entrepreneurship', 'AI Applications', 'Venture Creation', 'Deep Tech'],
+    startupInterests: ['AI & Machine Learning', 'EdTech', 'HealthTech'],
+    availability: '1-5 hrs/week',
+    linkedinUrl: 'https://linkedin.com/in/elenarostova-demo',
+    privacy: {
+      showEmailToConnectionsOnly: false,
+      publicProfile: true
+    }
+  },
+  {
+    id: 'user-mentor-marcus',
+    name: 'Marcus Vance',
+    email: 'marcus.vance@alum.gatech.edu',
+    roleType: 'Mentor',
+    initials: 'MV',
+    university: 'Georgia Tech Alumni & Engineering Director',
+    degree: 'M.S.',
+    major: 'Software Engineering & Enterprise Cloud',
+    graduationYear: 'Alumni',
+    bio: 'Staff Engineering Director with 12+ years in cloud infrastructure. Passionate about helping undergraduate developers prepare for careers and build scalable SaaS backends.',
+    skills: ['Career Coaching', 'System Architecture', 'Cloud Infrastructure', 'Tech Hiring', 'Resume Reviews'],
+    interests: ['Junior Developer Mentorship', 'Cloud Systems', 'Open Source'],
+    startupInterests: ['Dev Tools & Open Source', 'Fintech'],
+    availability: '1-5 hrs/week',
+    linkedinUrl: 'https://linkedin.com/in/marcusvance-demo',
+    privacy: {
+      showEmailToConnectionsOnly: false,
+      publicProfile: true
+    }
+  }
+];
+
+export const SAMPLE_STUDENT_PROFILE: CollaboratorProfile = {
+  id: 'peer-sample-alex',
+  name: 'Alex Rivera',
+  email: 'alex.rivera@stanford.edu',
+  roleType: 'Student',
+  initials: 'AR',
+  university: 'Stanford University',
+  degree: 'B.S.',
+  major: 'Computer Science & Innovation',
+  graduationYear: '2027',
+  bio: 'Second-year CS undergraduate interested in verified student opportunities, full-stack web applications, and campus climate innovation. Building for impact.',
+  skills: ['TypeScript', 'React', 'Node.js', 'UI Design', 'Python', 'Tailwind CSS'],
+  interests: ['EdTech', 'CleanTech', 'Developer Tools', 'Startup Ideation'],
+  startupInterests: ['EdTech', 'CleanTech & Climate', 'Dev Tools & Open Source'],
+  availability: '10-20 hrs/week',
+  githubUrl: 'https://github.com/alexrivera-demo',
+  linkedinUrl: 'https://linkedin.com/in/alexrivera-demo',
+  portfolioUrl: 'https://alexrivera-demo.dev',
+  privacy: {
+    showEmailToConnectionsOnly: true,
+    publicProfile: true
+  }
+};
+
+export const CURRENT_DEMO_USER = SAMPLE_STUDENT_PROFILE;
+
+export const SEED_REQUESTS: CollaborationRequest[] = [
+  {
+    id: 'req-1',
+    senderId: 'user-priya',
+    senderName: 'Priya Sharma',
+    senderUniversity: 'UT Austin',
+    senderSkills: ['React', 'TypeScript', 'Figma', 'UI/UX Design'],
+    receiverId: 'current-user-1',
+    ideaId: 'idea-3',
+    ideaTitle: 'EduLens — AI-powered personalized learning',
+    message: 'Hey Alex! I saw your profile and would love to collaborate on the interactive lecture notes and study pod dashboard for EduLens.',
+    proposedRole: 'Frontend Developer',
+    status: 'pending',
+    createdAt: '2026-04-08'
+  },
+  {
+    id: 'req-2',
+    senderId: 'current-user-1',
+    senderName: 'Alex Rivera',
+    senderUniversity: 'Stanford University',
+    senderSkills: ['TypeScript', 'React', 'Node.js'],
+    receiverId: 'user-arjun',
+    ideaId: 'idea-1',
+    ideaTitle: 'EcoTrack — Sustainable lifestyle tracking app',
+    message: 'Hi Arjun, I am excited about campus sustainability and would love to contribute to the rewards and carbon metric calculation API.',
+    proposedRole: 'Full-Stack Developer',
+    status: 'accepted',
+    createdAt: '2026-04-05',
+    respondedAt: '2026-04-06'
+  }
+];
+
+export const SEED_NOTIFICATIONS: AppNotification[] = [
+  {
+    id: 'notif-1',
+    userId: 'current-user-1',
+    title: 'New Collaboration Request',
+    message: 'Priya Sharma (UT Austin) invited you to collaborate on EduLens.',
+    type: 'collaboration_request',
+    isRead: false,
+    createdAt: '2026-04-08',
+    linkTab: 'profile',
+    linkId: 'req-1'
+  },
+  {
+    id: 'notif-2',
+    userId: 'current-user-1',
+    title: 'Collaboration Request Accepted',
+    message: 'Arjun Nair accepted your request to collaborate on EcoTrack! Contact details are now unlocked.',
+    type: 'request_accepted',
+    isRead: false,
+    createdAt: '2026-04-06',
+    linkTab: 'startups',
+    linkId: 'idea-1'
+  },
+  {
+    id: 'notif-3',
+    userId: 'current-user-1',
+    title: 'Verified Opportunity Reminder',
+    message: 'NovaTech Cloud Developer Intern deadline is approaching on May 15.',
+    type: 'job_alert',
+    isRead: true,
+    createdAt: '2026-04-04',
+    linkTab: 'jobs',
+    linkId: 'job-1'
+  }
+];
